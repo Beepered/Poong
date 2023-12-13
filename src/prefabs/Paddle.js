@@ -14,7 +14,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         //stats
         this.playerID = playerID
         this.speed = 250
-        this.cooldown = 0; this.cooldownMax = 0
+        this.cooldown = 0; this.cooldownMax = 70
     }
 
     update(){

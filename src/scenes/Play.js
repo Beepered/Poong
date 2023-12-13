@@ -48,7 +48,7 @@ class Play extends Phaser.Scene{
     }
 
     update(){
-        if(time <= 60 && playing){
+        if(time <= 60 && playing){ //launch upgrade scene and remove all balls and stop paddles
             Phaser.Actions.Call(this.PaddleGroup.getChildren(), function(paddle) {
                 paddle.body.velocity.y = 0
             }, this);
