@@ -1,5 +1,5 @@
 class Ball extends Phaser.Physics.Arcade.Sprite{
-    constructor(scene, x, y, playerID){
+    constructor(scene, x, y, playerID, speed){
         super(scene, x, y, "ball")
         scene.BallGroup.add(this)
         scene.add.existing(this)
@@ -7,14 +7,13 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
 
         //stats
         this.playerID = playerID
-        this.speed = 500
 
         if(this.playerID == 1){ //fired from left paddle
-            this.body.velocity.x = this.speed
+            this.body.velocity.x = speed 
             this.tint = 0xFFFFFF
         }
         else{ //fired from right paddle
-            this.body.velocity.x = -this.speed
+            this.body.velocity.x = -speed
             this.tint = 0x000000
         }
     }

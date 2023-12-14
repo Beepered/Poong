@@ -14,7 +14,8 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         //stats
         this.playerID = playerID
         this.speed = 300
-        this.cooldown = 0; this.cooldownMax = 1 //set to 300 when real
+        this.ballSpeed = 500
+        this.cooldown = 0; this.cooldownMax = 1
     }
 
     update(time, delta){
@@ -54,13 +55,13 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         if(this.cooldown <= 0){
             if(this.playerID == 1){
                 if(Phaser.Input.Keyboard.JustDown(keyD)){
-                    let ball = new Ball(this.scene, this.x + 9, this.y, 1)
+                    let ball = new Ball(this.scene, this.x + 9, this.y, 1, this.ballSpeed)
                     this.cooldown = this.cooldownMax
                 }
             }
             else{
                 if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
-                    let ball = new Ball(this.scene, this.x - 9, this.y, 2)
+                    let ball = new Ball(this.scene, this.x - 9, this.y, 2, this.ballSpeed)
                     this.cooldown = this.cooldownMax
                 }
             }

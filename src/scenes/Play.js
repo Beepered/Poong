@@ -11,7 +11,7 @@ class Play extends Phaser.Scene{
     }
 
     create(){
-        countdown = 2
+        countdown = 20
         this.scene.launch("UIScene")
         this.music = this.sound.add("music", {
             volume: 0.05,
@@ -22,8 +22,8 @@ class Play extends Phaser.Scene{
         this.PaddleGroup = this.add.group({
             runChildUpdate: true
         })
-        let player1 = new Paddle(this, 1); this.PaddleGroup.add(player1)
-        let player2 = new Paddle(this, 2); this.PaddleGroup.add(player2)
+        player1 = new Paddle(this, 1); this.PaddleGroup.add(player1)
+        player2 = new Paddle(this, 2); this.PaddleGroup.add(player2)
 
         this.BallGroup = this.add.group({
             runChildUpdate: true
@@ -46,7 +46,7 @@ class Play extends Phaser.Scene{
     update(){
         if(countdown <= 0 && playing){ //when countdown is finished and we are still playing
             Phaser.Actions.Call(this.PaddleGroup.getChildren(), function(paddle) {
-                paddle.body.velocity.y = 0
+                paddle.reset()
             }, this);
             Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
                 ball.destroy()

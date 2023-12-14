@@ -36,7 +36,7 @@ class Upgrades extends Phaser.Scene{
         if(this.player1_finished && this.player2_finished){ //when everyone has confirmed they are done upgrading
             this.scene.stop()
             playing = true
-            countdown = 2
+            countdown = 20
         }
         else{
             //player1 upgrades
@@ -54,24 +54,27 @@ class Upgrades extends Phaser.Scene{
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyD)){ //buy
-                    if(this.cursor1_location == 0 && player1_points >= upgrade1_1_cost){
+                    if(this.cursor1_location == 0 && player1_points >= upgrade1_1_cost){ //bigger paddle
+                        player1.setScale(1, player1.scaleY * 1.1)
                         player1_points -= upgrade1_1_cost
                         upgrade1_1_cost = Math.floor(upgrade1_1_cost * 1.75)
                         this.upgrade1_1_text.text = upgrade1_1_cost
                     }
-                    else if (this.cursor1_location == 1 && player1_points >= upgrade2_1_cost){
+                    else if (this.cursor1_location == 1 && player1_points >= upgrade2_1_cost){ //faster ball
+                        player1.ballSpeed = player1.ballSpeed * 1.1
                         player1_points -= upgrade2_1_cost
                         upgrade2_1_cost = Math.floor(upgrade2_1_cost * 1.75)
                         this.upgrade2_1_text.text = upgrade2_1_cost
                     }
-                    else if (this.cursor1_location == 2 && player1_points >= upgrade3_1_cost){
+                    else if (this.cursor1_location == 2 && player1_points >= upgrade3_1_cost){ //lower cooldown
+                        player1.cooldownMax *= 0.9
                         player1_points -= upgrade3_1_cost
                         upgrade3_1_cost = Math.floor(upgrade3_1_cost * 1.75)
                         this.upgrade3_1_text.text = upgrade3_1_cost
                     }
                     else if (this.cursor1_location == 3){
                         this.player1_finished = true
-                        this.Visible(1)
+                        this.SetOptionsInvisible(1)
                     }
                 }
             }
@@ -91,24 +94,27 @@ class Upgrades extends Phaser.Scene{
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyLEFT)){ //buy
-                    if(this.cursor2_location == 0 && player2_points >= upgrade1_2_cost){
+                    if(this.cursor2_location == 0 && player2_points >= upgrade1_2_cost){ //bigger paddle
+                        player2.setScale(1, player2.scaleY * 1.1)
                         player2_points -= upgrade1_2_cost
                         upgrade1_2_cost = Math.floor(upgrade1_2_cost * 1.75)
                         this.upgrade1_2_text.text = upgrade1_2_cost
                     }
-                    else if (this.cursor2_location == 1 && player2_points >= upgrade2_2_cost){
+                    else if (this.cursor2_location == 1 && player2_points >= upgrade2_2_cost){ //faster ball
+                        player2.ballSpeed = player2.ballSpeed * 1.1
                         player2_points -= upgrade2_2_cost
                         upgrade2_2_cost = Math.floor(upgrade2_2_cost * 1.75)
                         this.upgrade2_2_text.text = upgrade2_2_cost
                     }
-                    else if (this.cursor2_location == 2 && player2_points >= upgrade3_2_cost){
+                    else if (this.cursor2_location == 2 && player2_points >= upgrade3_2_cost){ //lower cooldown
+                        player2.cooldownMax *= 0.9
                         player2_points -= upgrade3_2_cost
                         upgrade3_2_cost = Math.floor(upgrade3_2_cost * 1.75)
                         this.upgrade3_2_text.text = upgrade3_2_cost
                     }
                     else if (this.cursor2_location == 3){
                         this.player2_finished = true
-                        this.Visible(2)
+                        this.SetOptionsInvisible(2)
                     }
                 }
             }
