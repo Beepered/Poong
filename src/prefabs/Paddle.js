@@ -13,15 +13,15 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
 
         //stats
         this.playerID = playerID
-        this.speed = 250
-        this.cooldown = 0; this.cooldownMax = 70
+        this.speed = 300
+        this.cooldown = 0; this.cooldownMax = 1 //set to 300 when real
     }
 
-    update(){
+    update(time, delta){
         if(playing){
             this.movement()
             this.fireBall()
-            this.cooldown--
+            this.cooldown -= delta * 0.001
         }
     }
 

@@ -11,11 +11,7 @@ class Play extends Phaser.Scene{
     }
 
     create(){
-        player1_points = 0; player2_points = 0
-        upgrade1_1_cost = 3; upgrade2_1_cost = 3; upgrade3_1_cost = 3
-        upgrade1_2_cost = 3; upgrade2_2_cost = 3; upgrade3_2_cost = 3
-        time = 1260 //20 seconds until upgrade
-
+        countdown = 2
         this.scene.launch("UIScene")
         this.music = this.sound.add("music", {
             volume: 0.05,
@@ -48,7 +44,7 @@ class Play extends Phaser.Scene{
     }
 
     update(){
-        if(time <= 60 && playing){ //launch upgrade scene and remove all balls and stop paddles
+        if(countdown <= 0 && playing){ //when countdown is finished and we are still playing
             Phaser.Actions.Call(this.PaddleGroup.getChildren(), function(paddle) {
                 paddle.body.velocity.y = 0
             }, this);
@@ -58,7 +54,7 @@ class Play extends Phaser.Scene{
             this.scene.launch("UpgradeScene")
         }
 
-        if(player1_points >= 20 || player2_points >= 20){
+        if(player1_points >= 20 || player2_points >= 20){ //winner
             playing = false
             Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
                 ball.body.setVelocity(0, 0)

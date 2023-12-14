@@ -21,5 +21,5 @@ let keyUP, keyDOWN, keyLEFT, keyW, keyS, keyD, SPACEBAR;
 let player1_points = 0, player2_points = 0
 let upgrade1_1_cost = 3, upgrade2_1_cost = 3, upgrade3_1_cost = 3
 let upgrade1_2_cost = 3, upgrade2_2_cost = 3, upgrade3_2_cost = 3
-let time = 0
+let countdown = 0
 let playing = true
