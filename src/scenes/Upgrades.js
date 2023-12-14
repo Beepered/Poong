@@ -71,7 +71,7 @@ class Upgrades extends Phaser.Scene{
                     }
                     else if (this.cursor1_location == 3){
                         this.player1_finished = true
-                        this.Visible(1, false)
+                        this.Visible(1)
                     }
                 }
             }
@@ -108,45 +108,29 @@ class Upgrades extends Phaser.Scene{
                     }
                     else if (this.cursor2_location == 3){
                         this.player2_finished = true
-                        this.Visible(2, false)
+                        this.Visible(2)
                     }
                 }
             }
         }
     }
 
-    Visible(player, off_or_on){ //hide or show upgrade options
+    SetOptionsInvisible(player){ //hide or show upgrade options
         if(player == 1){
-            if(off_or_on){ //on
-                this.background1.setVisible(true)
-                this.upgrade1_1.setVisible(true); this.upgrade1_1_text.setVisible(true)
-                this.upgrade2_1.setVisible(true); this.upgrade2_1_text.setVisible(true)
-                this.upgrade3_1.setVisible(true); this.upgrade3_1_text.setVisible(true)
-                this.finished_1.setVisible(true)
-            }
-            else{ //off
-                this.background1.setVisible(false)
-                this.upgrade1_1.setVisible(false); this.upgrade1_1_text.setVisible(false)
-                this.upgrade2_1.setVisible(false); this.upgrade2_1_text.setVisible(false)
-                this.upgrade3_1.setVisible(false); this.upgrade3_1_text.setVisible(false)
-                this.finished_1.setVisible(false)
-            }
+            this.background1.setVisible(false)
+            this.upgrade1_1.setVisible(false); this.upgrade1_1_text.setVisible(false)
+            this.upgrade2_1.setVisible(false); this.upgrade2_1_text.setVisible(false)
+            this.upgrade3_1.setVisible(false); this.upgrade3_1_text.setVisible(false)
+            this.finished_1.setVisible(false)
+            this.cursor1.setVisible(false)
         }
         else{
-            if(off_or_on){ //on
-                this.background2.setVisible(true)
-                this.upgrade1_2.setVisible(true); this.upgrade1_2_text.setVisible(true)
-                this.upgrade2_2.setVisible(true); this.upgrade2_2_text.setVisible(true)
-                this.upgrade3_2.setVisible(true); this.upgrade3_2_text.setVisible(true)
-                this.finished_2.setVisible(true)
-            }
-            else{ //off
-                this.background2.setVisible(false)
-                this.upgrade1_2.setVisible(false); this.upgrade1_2_text.setVisible(false)
-                this.upgrade2_2.setVisible(false); this.upgrade2_2_text.setVisible(false)
-                this.upgrade3_2.setVisible(false); this.upgrade3_2_text.setVisible(false)
-                this.finished_2.setVisible(false)
-            }
+            this.background2.setVisible(false)
+            this.upgrade1_2.setVisible(false); this.upgrade1_2_text.setVisible(false)
+            this.upgrade2_2.setVisible(false); this.upgrade2_2_text.setVisible(false)
+            this.upgrade3_2.setVisible(false); this.upgrade3_2_text.setVisible(false)
+            this.finished_2.setVisible(false)
+            this.cursor2.setVisible(false)
         }
     }
 }
