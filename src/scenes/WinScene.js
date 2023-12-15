@@ -14,7 +14,7 @@ class WinScene extends Phaser.Scene{
         else{
             let win_text = this.add.bitmapText(gameWidth / 2, 300, "Pixel", "Player 2 WINS", 50).setOrigin(0.5)
         }
-        let text = this.add.bitmapText(gameWidth / 2, 380, "Pixel", player1_points + " - " + player2_points, 40).setOrigin(0.5)
+        this.add.bitmapText(gameWidth / 2, 380, "Pixel", player1_points + " - " + player2_points, 40).setOrigin(0.5)
         this.add.bitmapText(gameWidth / 2, 500, "Pixel", "Press SPACEBAR", 20).setOrigin(0.5)
     }
 
