@@ -25,11 +25,11 @@ class Upgrades extends Phaser.Scene{
 
         this.background2 = this.add.rectangle(600, gameHeight / 2, 370, 450, 0x0000FF).setOrigin(0.5)
         this.upgrade1_2 = this.add.sprite(705, 140, "upgrade paddle");
-        this.upgrade1_2_text = this.add.bitmapText(640, 130, "Pixel", upgrade1_2_cost, 20)
+        this.upgrade1_2_text = this.add.bitmapText(640, 130, "Pixel", upgrade1_2_cost, 20).setOrigin(1, 0.5)
         this.upgrade2_2 = this.add.sprite(705, 240, "upgrade ball");
-        this.upgrade2_2_text = this.add.bitmapText(640, 230, "Pixel", upgrade2_2_cost, 20)
+        this.upgrade2_2_text = this.add.bitmapText(640, 230, "Pixel", upgrade2_2_cost, 20).setOrigin(1, 0.5)
         this.upgrade3_2 = this.add.sprite(705, 340, "upgrade cooldown");
-        this.upgrade3_2_text = this.add.bitmapText(640, 330, "Pixel", upgrade3_2_cost, 20)
+        this.upgrade3_2_text = this.add.bitmapText(640, 330, "Pixel", upgrade3_2_cost, 20).setOrigin(1, 0.5)
         this.finished_2 = this.add.sprite(665, 440, "finished")
         
         this.cursor1 = this.physics.add.sprite(40, 140, "ball").setScale(2) //left cursor

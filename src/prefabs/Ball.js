@@ -16,6 +16,9 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
             this.body.velocity.x = -speed
             this.tint = 0x000000
         }
+
+        this.reflectSound = scene.sound.add("reflect")
+        this.pointSound = scene.sound.add("point")
     }
 
     update(){
@@ -26,15 +29,18 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
         //giving points
         if(this.x <= -this.width){
             player2_points++
+            this.pointSound.play()
             this.destroy()
         }
         else if (this.x >= gameWidth + this.width){
             player1_points++
+            this.pointSound.play()
             this.destroy()
         }
     }
 
     reflect(paddle){ //reflect off paddle
+        this.reflectSound.play()
         this.body.velocity.x *= -1
         this.playerID = paddle.playerID
         if(this.y < paddle.y - 6){ //hit top of paddle

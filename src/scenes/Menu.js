@@ -4,16 +4,10 @@ class Menu extends Phaser.Scene{
     }
 
     preload(){
-        this.load.audio("menu_music", "assets/menu_music.mp3")
         this.load.bitmapFont("Pixel", "assets/pixel font.png", "assets/pixel font.xml")
     }
 
     create(){
-        this.music = this.sound.add("menu_music", {
-            volume: 0.1,
-            loop: true
-        });
-        this.music.play();
         this.add.bitmapText(gameWidth / 2, gameHeight / 2.5, "Pixel", "Poong", 60).setOrigin(0.5).setTintFill(0xFF0000)
         this.add.bitmapText(gameWidth / 2, gameHeight / 1.8, "Pixel", "press SPACEBAR to PLAY", 20).setOrigin(0.5)
         this.add.bitmapText(gameWidth / 2, gameHeight / 1.6, "Pixel", "press UP for INSTRUCTIONS", 20).setOrigin(0.5)

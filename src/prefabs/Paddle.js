@@ -1,11 +1,13 @@
 class Paddle extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, playerID){
         if(playerID == 1){ //left paddle
-            super(scene, 30, gameHeight / 2, "paddle")
+            super(scene, 40, gameHeight / 2, "paddle")
+            this.cooldown_text = scene.add.bitmapText(this.x - 30, this.y, "Pixel", "100%", 8)
         }
         else{ //right paddle
-            super(scene, 770, gameHeight / 2, "paddle")
+            super(scene, 760, gameHeight / 2, "paddle")
             this.tint = 0x000000
+            this.cooldown_text = scene.add.bitmapText(this.x + 10, this.y, "Pixel", "100%", 8)
         }
         scene.add.existing(this)
         scene.physics.add.existing(this)
@@ -16,13 +18,20 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         this.speed = 350
         this.ballSpeed = 500
         this.cooldown = 0; this.cooldownMax = 9
+
+        this.shootSound = scene.sound.add("shoot")
+    
     }
 
     update(time, delta){
+        this.cooldown_text.text = Math.floor(((this.cooldownMax -  this.cooldown) / this.cooldownMax) * 100) + "%"
+        this.cooldown_text.y = this.y
         if(playing){
             this.movement()
             this.fireBall()
-            this.cooldown -= delta * 0.001
+            if(this.cooldown > 0){
+                this.cooldown -= delta * 0.001
+            }
         }
     }
 
@@ -55,13 +64,15 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         if(this.cooldown <= 0){
             if(this.playerID == 1){
                 if(Phaser.Input.Keyboard.JustDown(keyD)){
-                    let ball = new Ball(this.scene, this.x + 9, this.y, 1, this.ballSpeed)
+                    this.shootSound.play()
+                    new Ball(this.scene, this.x + 9, this.y, 1, this.ballSpeed)
                     this.cooldown = this.cooldownMax
                 }
             }
             else{
                 if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
-                    let ball = new Ball(this.scene, this.x - 9, this.y, 2, this.ballSpeed)
+                    this.shootSound.play()
+                    new Ball(this.scene, this.x - 9, this.y, 2, this.ballSpeed)
                     this.cooldown = this.cooldownMax
                 }
             }

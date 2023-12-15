@@ -7,7 +7,9 @@ class Play extends Phaser.Scene{
         this.load.image("paddle", "assets/paddle.png")
         this.load.image("ball", "assets/ball.png")
 
-        this.load.audio("music", "assets/music.mp3")
+        this.load.audio("shoot", "assets/shoot.wav")
+        this.load.audio("reflect", "assets/reflect.wav")
+        this.load.audio("point", "assets/point.wav")
     }
 
     create(){
@@ -16,11 +18,6 @@ class Play extends Phaser.Scene{
         countdown = 20
         
         this.scene.launch("UIScene")
-        this.music = this.sound.add("music", {
-            volume: 0.05,
-            loop: true
-        });
-        this.music.play();
 
         this.PaddleGroup = this.add.group({
             runChildUpdate: true
