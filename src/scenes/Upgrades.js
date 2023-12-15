@@ -4,9 +4,9 @@ class Upgrades extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image("upgrade 1", "assets/upgrade 1.png")
-        this.load.image("upgrade 2", "assets/upgrade 2.png")
-        this.load.image("upgrade 3", "assets/upgrade 3.png")
+        this.load.image("upgrade paddle", "assets/upgrade_paddle.png")
+        this.load.image("upgrade ball", "assets/upgrade_ball.png")
+        this.load.image("upgrade cooldown", "assets/upgrade_cooldown.png")
         this.load.image("finished", "assets/finished.png")
     }
 
@@ -15,15 +15,15 @@ class Upgrades extends Phaser.Scene{
         this.player1_finished = false; this.player2_finished = false;
 
         this.background1 = this.add.rectangle(200, gameHeight / 2, 370, 450, 0x0000FF).setOrigin(0.5)
-        this.upgrade1_1 = this.add.sprite(95, 140, "upgrade 1"); this.upgrade1_1_text = this.add.bitmapText(150, 140, "Pixel", upgrade1_1_cost, 20)
-        this.upgrade2_1 = this.add.sprite(95, 240, "upgrade 2"); this.upgrade2_1_text = this.add.bitmapText(150, 240, "Pixel", upgrade2_1_cost, 20)
-        this.upgrade3_1 = this.add.sprite(95, 340, "upgrade 3"); this.upgrade3_1_text = this.add.bitmapText(150, 340, "Pixel", upgrade3_1_cost, 20)
+        this.upgrade1_1 = this.add.sprite(95, 140, "upgrade paddle"); this.upgrade1_1_text = this.add.bitmapText(150, 140, "Pixel", upgrade1_1_cost, 20)
+        this.upgrade2_1 = this.add.sprite(95, 240, "upgrade ball"); this.upgrade2_1_text = this.add.bitmapText(150, 240, "Pixel", upgrade2_1_cost, 20)
+        this.upgrade3_1 = this.add.sprite(95, 340, "upgrade cooldown"); this.upgrade3_1_text = this.add.bitmapText(150, 340, "Pixel", upgrade3_1_cost, 20)
         this.finished_1 = this.add.sprite(135, 440, "finished")
 
         this.background2 = this.add.rectangle(600, gameHeight / 2, 370, 450, 0x0000FF).setOrigin(0.5)
-        this.upgrade1_2 = this.add.sprite(705, 140, "upgrade 1"); this.upgrade1_2_text = this.add.bitmapText(650, 140, "Pixel", upgrade1_1_cost, 20)
-        this.upgrade2_2 = this.add.sprite(705, 240, "upgrade 2"); this.upgrade2_2_text = this.add.bitmapText(650, 240, "Pixel", upgrade2_2_cost, 20)
-        this.upgrade3_2 = this.add.sprite(705, 340, "upgrade 3"); this.upgrade3_2_text = this.add.bitmapText(650, 340, "Pixel", upgrade3_2_cost, 20)
+        this.upgrade1_2 = this.add.sprite(705, 140, "upgrade paddle"); this.upgrade1_2_text = this.add.bitmapText(650, 140, "Pixel", upgrade1_1_cost, 20)
+        this.upgrade2_2 = this.add.sprite(705, 240, "upgrade ball"); this.upgrade2_2_text = this.add.bitmapText(650, 240, "Pixel", upgrade2_2_cost, 20)
+        this.upgrade3_2 = this.add.sprite(705, 340, "upgrade cooldown"); this.upgrade3_2_text = this.add.bitmapText(650, 340, "Pixel", upgrade3_2_cost, 20)
         this.finished_2 = this.add.sprite(665, 440, "finished")
         
         this.cursor1 = this.physics.add.sprite(40, 140, "ball").setScale(2) //left cursor

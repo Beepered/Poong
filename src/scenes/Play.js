@@ -11,7 +11,10 @@ class Play extends Phaser.Scene{
     }
 
     create(){
+        upgrade1_1_cost = 3, upgrade2_1_cost = 3, upgrade3_1_cost = 3
+        upgrade1_2_cost = 3, upgrade2_2_cost = 3, upgrade3_2_cost = 3
         countdown = 20
+        
         this.scene.launch("UIScene")
         this.music = this.sound.add("music", {
             volume: 0.05,
