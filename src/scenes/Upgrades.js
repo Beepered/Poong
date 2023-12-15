@@ -25,11 +25,11 @@ class Upgrades extends Phaser.Scene{
 
         this.background2 = this.add.rectangle(600, gameHeight / 2, 370, 450, 0x0000FF).setOrigin(0.5)
         this.upgrade1_2 = this.add.sprite(705, 140, "upgrade paddle");
-        this.upgrade1_2_text = this.add.bitmapText(640, 130, "Pixel", upgrade1_2_cost, 20).setOrigin(1, 0.5)
+        this.upgrade1_2_text = this.add.bitmapText(645, 140, "Pixel", upgrade1_2_cost, 20).setOrigin(1, 0.5)
         this.upgrade2_2 = this.add.sprite(705, 240, "upgrade ball");
-        this.upgrade2_2_text = this.add.bitmapText(640, 230, "Pixel", upgrade2_2_cost, 20).setOrigin(1, 0.5)
+        this.upgrade2_2_text = this.add.bitmapText(645, 240, "Pixel", upgrade2_2_cost, 20).setOrigin(1, 0.5)
         this.upgrade3_2 = this.add.sprite(705, 340, "upgrade cooldown");
-        this.upgrade3_2_text = this.add.bitmapText(640, 330, "Pixel", upgrade3_2_cost, 20).setOrigin(1, 0.5)
+        this.upgrade3_2_text = this.add.bitmapText(645, 340, "Pixel", upgrade3_2_cost, 20).setOrigin(1, 0.5)
         this.finished_2 = this.add.sprite(665, 440, "finished")
         
         this.cursor1 = this.physics.add.sprite(40, 140, "ball").setScale(2) //left cursor
@@ -61,19 +61,19 @@ class Upgrades extends Phaser.Scene{
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyD)){ //buy
                     if(this.cursor1_location == 0 && player1_points >= upgrade1_1_cost){ //bigger paddle
-                        player1.setScale(1, player1.scaleY * 1.1)
+                        player1.setScale(1, player1.scaleY * 1.2)
                         player1_points -= upgrade1_1_cost
                         upgrade1_1_cost = Math.floor(upgrade1_1_cost * 1.75)
                         this.upgrade1_1_text.text = upgrade1_1_cost
                     }
                     else if (this.cursor1_location == 1 && player1_points >= upgrade2_1_cost){ //faster ball
-                        player1.ballSpeed = player1.ballSpeed * 1.1
+                        player1.ballSpeed = player1.ballSpeed * 1.2
                         player1_points -= upgrade2_1_cost
                         upgrade2_1_cost = Math.floor(upgrade2_1_cost * 1.75)
                         this.upgrade2_1_text.text = upgrade2_1_cost
                     }
                     else if (this.cursor1_location == 2 && player1_points >= upgrade3_1_cost){ //lower cooldown
-                        player1.cooldownMax *= 0.9
+                        player1.cooldownMax *= 0.85
                         player1_points -= upgrade3_1_cost
                         upgrade3_1_cost = Math.floor(upgrade3_1_cost * 1.75)
                         this.upgrade3_1_text.text = upgrade3_1_cost
@@ -101,19 +101,19 @@ class Upgrades extends Phaser.Scene{
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyLEFT)){ //buy
                     if(this.cursor2_location == 0 && player2_points >= upgrade1_2_cost){ //bigger paddle
-                        player2.setScale(1, player2.scaleY * 1.1)
+                        player2.setScale(1, player2.scaleY * 1.2)
                         player2_points -= upgrade1_2_cost
                         upgrade1_2_cost = Math.floor(upgrade1_2_cost * 1.75)
                         this.upgrade1_2_text.text = upgrade1_2_cost
                     }
                     else if (this.cursor2_location == 1 && player2_points >= upgrade2_2_cost){ //faster ball
-                        player2.ballSpeed = player2.ballSpeed * 1.1
+                        player2.ballSpeed = player2.ballSpeed * 1.2
                         player2_points -= upgrade2_2_cost
                         upgrade2_2_cost = Math.floor(upgrade2_2_cost * 1.75)
                         this.upgrade2_2_text.text = upgrade2_2_cost
                     }
                     else if (this.cursor2_location == 2 && player2_points >= upgrade3_2_cost){ //lower cooldown
-                        player2.cooldownMax *= 0.9
+                        player2.cooldownMax *= 0.85
                         player2_points -= upgrade3_2_cost
                         upgrade3_2_cost = Math.floor(upgrade3_2_cost * 1.75)
                         this.upgrade3_2_text.text = upgrade3_2_cost

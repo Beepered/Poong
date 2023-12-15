@@ -13,6 +13,8 @@ class Play extends Phaser.Scene{
     }
 
     create(){
+        playing = true
+        player1_points = 0; player2_points = 0
         upgrade1_1_cost = 3, upgrade2_1_cost = 3, upgrade3_1_cost = 3
         upgrade1_2_cost = 3, upgrade2_2_cost = 3, upgrade3_2_cost = 3
         countdown = 20
@@ -48,7 +50,7 @@ class Play extends Phaser.Scene{
             Phaser.Actions.Call(this.PaddleGroup.getChildren(), function(paddle) {
                 paddle.reset()
             }, this);
-            Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
+            this.BallGroup.children.each(function(ball) {
                 ball.destroy()
             }, this);
             this.scene.launch("UpgradeScene")
@@ -59,8 +61,7 @@ class Play extends Phaser.Scene{
             Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
                 ball.body.setVelocity(0, 0)
             }, this);
-            this.time.delayedCall(500, () => {
-                this.music.stop();
+            this.time.delayedCall(300, () => {
                 this.scene.start("WinScene");
                 this.scene.stop("UIScene")
             });
