@@ -82,6 +82,6 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
     reset(){
         this.y = gameHeight / 2
         this.body.velocity.y = 0
-        this.cooldown = this.cooldownMax
+        this.cooldown = 0
     }
 }
