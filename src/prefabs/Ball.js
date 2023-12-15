@@ -43,10 +43,10 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
         this.reflectSound.play()
         this.body.velocity.x *= -1
         this.playerID = paddle.playerID
-        if(this.y < paddle.y - 6){ //hit top of paddle
+        if(this.y < paddle.y - 4){ //hit top of paddle
             this.body.velocity.y = -50 * Phaser.Math.Between(1, 2.5)
         }
-        else if(this.y > paddle.y + 6){ //hit bottom of paddle
+        else if(this.y > paddle.y + 4){ //hit bottom of paddle
             this.body.velocity.y = 50 * Phaser.Math.Between(1, 2.5)
         }
         if(this.playerID == 1){
