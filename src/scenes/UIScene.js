@@ -10,10 +10,6 @@ class UIScene extends Phaser.Scene
     }
 
     create (){
-        player1_points = 0; player2_points = 0
-        upgrade1_1_cost = 3; upgrade2_1_cost = 3; upgrade3_1_cost = 3
-        upgrade1_2_cost = 3; upgrade2_2_cost = 3; upgrade3_2_cost = 3
-
         this.player1_points_text = this.add.bitmapText(220, 40, "Pixel", player1_points, 30)
         this.player2_points_text = this.add.bitmapText(580, 40, "Pixel", player2_points, 30)
 

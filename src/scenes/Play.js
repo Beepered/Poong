@@ -13,11 +13,7 @@ class Play extends Phaser.Scene{
     }
 
     create(){
-        playing = true
-        player1_points = 0; player2_points = 0
-        upgrade1_1_cost = 3, upgrade2_1_cost = 3, upgrade3_1_cost = 3
-        upgrade1_2_cost = 3, upgrade2_2_cost = 3, upgrade3_2_cost = 3
-        countdown = 20
+        this.reset()
         
         this.scene.launch("UIScene")
 
@@ -66,5 +62,13 @@ class Play extends Phaser.Scene{
                 this.scene.stop("UIScene")
             });
         }
+    }
+
+    reset(){
+        playing = true
+        player1_points = 19; player2_points = 0
+        upgrade1_1_cost = 2, upgrade2_1_cost = 2, upgrade3_1_cost = 2
+        upgrade1_2_cost = 2, upgrade2_2_cost = 2, upgrade3_2_cost = 2
+        countdown = 20
     }
 }
