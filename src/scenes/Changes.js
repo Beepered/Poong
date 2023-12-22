@@ -10,7 +10,7 @@ class Changes extends Phaser.Scene{
     }
 
     create(){
-        this.add.bitmapText(gameWidth / 2, 40, "Pixel", "GAME CHANGES", 22).setOrigin(0.5)
+        this.add.bitmapText(gameWidth / 2, 40, "Pixel", "GAME MODIFIERS", 22).setOrigin(0.5)
 
         this.cursor = this.add.sprite(150, 200, "ball")
         this.cursor_location = 0
@@ -23,8 +23,10 @@ class Changes extends Phaser.Scene{
         this.add.sprite(550, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
         this.win_text = this.add.bitmapText(550, 200, "Pixel", "win limit: " + winMax, 20).setOrigin(0.5)
 
-        this.ball_reflection_text = this.add.bitmapText(gameWidth / 2, 360, "Pixel", "ball reflection: press E", 16).setTintFill(0xFF0000).setOrigin(0.5)
-        this.fast_ball_text = this.add.bitmapText(gameWidth / 2, 400, "Pixel", "fast balls: press R", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.ball_reflection_text = this.add.bitmapText(gameWidth / 2, 360, "Pixel", "balls reflect off balls: press W", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.fast_ball_text = this.add.bitmapText(gameWidth / 2, 400, "Pixel", "50% faster balls: press A", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.increasing_speed_text = this.add.bitmapText(gameWidth / 2, 440, "Pixel", "balls speed up on reflect: press S", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.fast_paddles_text = this.add.bitmapText(gameWidth / 2, 480, "Pixel", "paddles are too fast: press D", 16).setTintFill(0xFF0000).setOrigin(0.5)
 
         this.add.bitmapText(gameWidth / 2, 550, "Pixel", "press SPACEBAR to play", 25).setOrigin(0.5)
 
@@ -34,8 +36,10 @@ class Changes extends Phaser.Scene{
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
         SPACEBAR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
 
-        keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
-        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
     }
 
     update(){
@@ -75,7 +79,7 @@ class Changes extends Phaser.Scene{
 
 
         //game changers
-        if(Phaser.Input.Keyboard.JustDown(keyE)){
+        if(Phaser.Input.Keyboard.JustDown(keyW)){
             ball_reflection = !ball_reflection
             if(ball_reflection){
                 this.ball_reflection_text.setTintFill(0x008000)
@@ -84,13 +88,31 @@ class Changes extends Phaser.Scene{
                 this.ball_reflection_text.setTintFill(0xFF0000)
             }
         }
-        if(Phaser.Input.Keyboard.JustDown(keyR)){
+        if(Phaser.Input.Keyboard.JustDown(keyA)){
             fast_ball = !fast_ball
             if(fast_ball){
                 this.fast_ball_text.setTintFill(0x008000)
             }
             else{
                 this.fast_ball_text.setTintFill(0xFF0000)
+            }
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyS)){
+            increasing_speed = !increasing_speed
+            if(increasing_speed){
+                this.increasing_speed_text.setTintFill(0x008000)
+            }
+            else{
+                this.increasing_speed_text.setTintFill(0xFF0000)
+            }
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyD)){
+            fast_paddles = !fast_paddles
+            if(fast_paddles){
+                this.fast_paddles_text.setTintFill(0x008000)
+            }
+            else{
+                this.fast_paddles_text.setTintFill(0xFF0000)
             }
         }
     }

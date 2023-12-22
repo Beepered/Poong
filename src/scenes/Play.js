@@ -17,6 +17,7 @@ class Play extends Phaser.Scene{
         
         this.scene.launch("UIScene")
 
+        //collisions and groups
         this.PaddleGroup = this.add.group({
             runChildUpdate: true
         })

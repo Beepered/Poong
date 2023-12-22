@@ -42,6 +42,9 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
     reflect(paddle){ //reflect off paddle
         this.reflectSound.play()
         this.body.velocity.x *= -1
+        if(increasing_speed){ //increase speed on reflection
+            this.body.velocity.x *= 1.1
+        }
         this.playerID = paddle.playerID
         if(this.y < paddle.y - 4){ //hit top of paddle
             this.body.velocity.y = -50 * Phaser.Math.Between(1, 2.5)
@@ -60,6 +63,9 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
     ballReflect(){ //reflect off another ball
         this.reflectSound.play()
         this.body.velocity.x *= -1
+        if(increasing_speed){ //increase speed on reflection
+            this.body.velocity.x *= 1.1
+        }
         if(this.body.velocity.y == 0){
             while(this.body.velocity.y == 0){ //make sure it does not stay at 0
                 this.body.velocity.y = 80 * Phaser.Math.Between(-2, 2)
