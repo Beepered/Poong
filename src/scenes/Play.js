@@ -29,6 +29,12 @@ class Play extends Phaser.Scene{
         this.physics.add.overlap(this.PaddleGroup, this.BallGroup, (paddle, ball)=>{
             ball.reflect(paddle)
         })
+        if(ball_reflection){
+            this.physics.add.overlap(this.BallGroup, this.BallGroup, (ball)=>{
+                ball.ballReflect()
+            })
+        }
+
 
         //player 1 (left) controls
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)

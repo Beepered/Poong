@@ -56,4 +56,26 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
             this.tint = 0x000000
         }
     }
+
+    ballReflect(){ //reflect off another ball
+        this.reflectSound.play()
+        this.body.velocity.x *= -1
+        if(this.body.velocity.y == 0){
+            while(this.body.velocity.y == 0){ //make sure it does not stay at 0
+                this.body.velocity.y = 80 * Phaser.Math.Between(-2, 2)
+            }
+        }
+        else{
+            this.body.velocity.y *= Phaser.Math.Between(2, 3)
+        }
+        
+        if(this.playerID == 1){ //switch player id
+            this.playerID = 0
+            this.tint = 0x000000
+        }
+        else{
+            this.playerID = 0
+            this.tint = 0xFFFFFF
+        }
+    }
 }

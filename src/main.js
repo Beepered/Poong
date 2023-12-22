@@ -22,5 +22,9 @@ let player1_points = 0, player2_points = 0
 let player1, player2
 let upgrade1_1_cost = 2, upgrade2_1_cost = 2, upgrade3_1_cost = 2
 let upgrade1_2_cost = 2, upgrade2_2_cost = 2, upgrade3_2_cost = 2
-let countdown = 0; countdownMax = 20; winMax = 20
+
+//game changers
+let keyE, keyR
+let countdown = 0; countdownMax = 20; winMax = 20;
+let ball_reflection = false; fast_ball = false
 let playing = true
