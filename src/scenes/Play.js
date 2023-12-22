@@ -52,7 +52,7 @@ class Play extends Phaser.Scene{
             this.scene.launch("UpgradeScene")
         }
 
-        if(player1_points >= 20 || player2_points >= 20){ //winner
+        if(player1_points >= winMax || player2_points >= winMax){ //winner
             playing = false
             Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
                 ball.body.setVelocity(0, 0)
@@ -66,9 +66,9 @@ class Play extends Phaser.Scene{
 
     reset(){
         playing = true
-        player1_points = 19; player2_points = 0
+        player1_points = 0; player2_points = 0
         upgrade1_1_cost = 2, upgrade2_1_cost = 2, upgrade3_1_cost = 2
         upgrade1_2_cost = 2, upgrade2_2_cost = 2, upgrade3_2_cost = 2
-        countdown = 20
+        countdown = countdownMax
     }
 }

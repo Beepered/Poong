@@ -42,7 +42,7 @@ class Upgrades extends Phaser.Scene{
         if(this.player1_finished && this.player2_finished){ //when everyone has confirmed they are done upgrading
             this.scene.stop()
             playing = true
-            countdown = 20
+            countdown = countdownMax
         }
         else{
             //player1 upgrades

@@ -47,7 +47,7 @@ class Menu extends Phaser.Scene{
         else if(Phaser.Input.Keyboard.JustDown(SPACEBAR)){
             if(this.cursor_location == 0){
                 this.game.sound.stopAll();
-                this.scene.start("playScene")
+                this.scene.start("changeScene")
             }
             else if (this.cursor_location == 1){
                 this.scene.start("instructionScene")
