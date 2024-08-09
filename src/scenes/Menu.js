@@ -28,7 +28,7 @@ class Menu extends Phaser.Scene{
         this.add.sprite(190, gameHeight / 1.2, "arrow").setScale(2).setOrigin(0.5).setTintFill(0x000000).flipY = true
         this.add.bitmapText(260, gameHeight / 1.2, "Pixel", "- move", 13).setOrigin(0.5).setTintFill(0x000000)
 
-        this.add.bitmapText(520, gameHeight / 1.2, "Pixel", "SPACEBAR - select", 13).setOrigin(0.5).setTintFill(0x000000)
+        this.add.bitmapText(gameWidth / 2 + 150, gameHeight / 1.2, "Pixel", "SPACEBAR - select", 13).setOrigin(0.5).setTintFill(0x000000)
 
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)

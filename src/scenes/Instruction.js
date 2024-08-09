@@ -19,12 +19,12 @@ class Instruction extends Phaser.Scene{
         this.add.bitmapText(gameWidth / 2, gameHeight / 1.5, "Pixel", "First player to 20 points WINS", 16).setOrigin(0.5)
         this.add.bitmapText(gameWidth / 2, gameHeight / 1.4, "Pixel", "Upgrade at end of 20 seconds", 16).setOrigin(0.5)
 
-        this.add.sprite(200, gameHeight / 1.2, "upgrade paddle")
-        this.add.bitmapText(200, gameHeight / 1.07, "Pixel", "paddle size\n+10%", 13).setOrigin(0.5)
+        this.add.sprite(gameWidth / 2 - 200, gameHeight / 1.2, "upgrade paddle")
+        this.add.bitmapText(gameWidth / 2 - 200, gameHeight / 1.07, "Pixel", "paddle size\n+10%", 13).setOrigin(0.5)
         this.add.sprite(gameWidth / 2, gameHeight / 1.2, "upgrade ball")
         this.add.bitmapText(gameWidth / 2, gameHeight / 1.07, "Pixel", "ball speed\n+15%", 13).setOrigin(0.5)
-        this.add.sprite(600, gameHeight / 1.2, "upgrade cooldown")
-        this.add.bitmapText(600, gameHeight / 1.07, "Pixel", "cooldown\n-15%", 13).setOrigin(0.5)
+        this.add.sprite(gameWidth / 2 + 200, gameHeight / 1.2, "upgrade cooldown")
+        this.add.bitmapText(gameWidth / 2 + 200, gameHeight / 1.07, "Pixel", "cooldown\n-15%", 13).setOrigin(0.5)
         SPACEBAR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 

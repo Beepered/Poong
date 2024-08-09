@@ -74,8 +74,8 @@ class Play extends Phaser.Scene{
     reset(){
         playing = true
         player1_points = 0; player2_points = 0
-        upgrade1_1_cost = 2, upgrade2_1_cost = 2, upgrade3_1_cost = 2
-        upgrade1_2_cost = 2, upgrade2_2_cost = 2, upgrade3_2_cost = 2
+        upgrade1_1_cost = 1, upgrade2_1_cost = 1, upgrade3_1_cost = 1
+        upgrade1_2_cost = 1, upgrade2_2_cost = 1, upgrade3_2_cost = 1
         countdown = countdownMax
     }
 }

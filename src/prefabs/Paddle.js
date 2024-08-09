@@ -1,11 +1,11 @@
 class Paddle extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, playerID){
         if(playerID == 1){ //left paddle
-            super(scene, 40, gameHeight / 2, "paddle")
+            super(scene, 50, gameHeight / 2, "paddle")
             this.cooldown_text = scene.add.bitmapText(this.x - 8, this.y, "Pixel", "100%", 8).setOrigin(1, 0.5)
         }
         else{ //right paddle
-            super(scene, 760, gameHeight / 2, "paddle")
+            super(scene, gameWidth - 50, gameHeight / 2, "paddle")
             this.tint = 0x000000
             this.cooldown_text = scene.add.bitmapText(this.x + 8, this.y, "Pixel", "100%", 8)
         }
@@ -19,11 +19,11 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         if(fast_paddles){
             this.speed *= 5
         }
-        this.ballSpeed = 450
+        this.ballSpeed = 550
         if(fast_ball){
             this.ballSpeed *= 1.5
         }
-        this.cooldown = 0; this.cooldownMax = 8
+        this.cooldown = 0; this.cooldownMax = 6
 
         this.shootSound = scene.sound.add("shoot")
     }

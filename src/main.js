@@ -7,8 +7,8 @@ let config = {
             debug:false
         }
     },
-    width: 800,
-    height: 600,
+    width: 700,
+    height: 550,
     backgroundColor: "#FFFFFF",
     scene: [Menu, Instruction, Credits, Changes, Play, UIScene, Upgrades, WinScene]
 }
@@ -20,8 +20,8 @@ let gameWidth = game.config.width
 let keyUP, keyDOWN, keyLEFT, keyRIGHT, keyW, keyA, keyS, keyD, SPACEBAR;
 let player1_points = 0, player2_points = 0
 let player1, player2
-let upgrade1_1_cost = 2, upgrade2_1_cost = 2, upgrade3_1_cost = 2
-let upgrade1_2_cost = 2, upgrade2_2_cost = 2, upgrade3_2_cost = 2
+let upgrade1_1_cost = 1, upgrade2_1_cost = 1, upgrade3_1_cost = 1
+let upgrade1_2_cost = 1, upgrade2_2_cost = 1, upgrade3_2_cost = 1
 
 //game modifiers
 let countdown = 0; countdownMax = 20; winMax = 20;

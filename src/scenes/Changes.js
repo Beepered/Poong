@@ -12,23 +12,23 @@ class Changes extends Phaser.Scene{
     create(){
         this.add.bitmapText(gameWidth / 2, 40, "Pixel", "GAME MODIFIERS", 22).setOrigin(0.5)
 
-        this.cursor = this.add.sprite(150, 200, "ball")
+        this.cursor = this.add.sprite(gameWidth / 2 - 250, 200, "ball")
         this.cursor_location = 0
 
-        this.add.sprite(250, 150, "arrow").setScale(2).setTintFill(0x000000)
-        this.add.sprite(250, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
-        this.countdown_text = this.add.bitmapText(250, 200, "Pixel", "time: " + countdownMax, 20).setOrigin(0.5)
+        this.add.sprite(gameWidth / 2 - 150, 150, "arrow").setScale(2).setTintFill(0x000000)
+        this.add.sprite(gameWidth / 2 - 150, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
+        this.countdown_text = this.add.bitmapText(gameWidth / 2 - 150, 200, "Pixel", "time: " + countdownMax, 20).setOrigin(0.5)
 
-        this.add.sprite(550, 150, "arrow").setScale(2).setTintFill(0x000000)
-        this.add.sprite(550, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
-        this.win_text = this.add.bitmapText(550, 200, "Pixel", "win limit: " + winMax, 20).setOrigin(0.5)
+        this.add.sprite(gameWidth / 2 + 150, 150, "arrow").setScale(2).setTintFill(0x000000)
+        this.add.sprite(gameWidth / 2 + 150, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
+        this.win_text = this.add.bitmapText(gameWidth / 2 + 150, 200, "Pixel", "win limit: " + winMax, 20).setOrigin(0.5)
 
-        this.ball_reflection_text = this.add.bitmapText(gameWidth / 2, 360, "Pixel", "balls reflect off balls: press W", 16).setTintFill(0xFF0000).setOrigin(0.5)
-        this.fast_ball_text = this.add.bitmapText(gameWidth / 2, 400, "Pixel", "50% faster balls: press A", 16).setTintFill(0xFF0000).setOrigin(0.5)
-        this.increasing_speed_text = this.add.bitmapText(gameWidth / 2, 440, "Pixel", "balls speed up on reflect: press S", 16).setTintFill(0xFF0000).setOrigin(0.5)
-        this.fast_paddles_text = this.add.bitmapText(gameWidth / 2, 480, "Pixel", "paddles are too fast: press D", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.ball_reflection_text = this.add.bitmapText(gameWidth / 2, 310, "Pixel", "balls reflect off balls: press W", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.fast_ball_text = this.add.bitmapText(gameWidth / 2, 340, "Pixel", "50% faster balls: press A", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.increasing_speed_text = this.add.bitmapText(gameWidth / 2, 370, "Pixel", "balls speed up on reflect: press S", 16).setTintFill(0xFF0000).setOrigin(0.5)
+        this.fast_paddles_text = this.add.bitmapText(gameWidth / 2, 400, "Pixel", "paddles are too fast: press D", 16).setTintFill(0xFF0000).setOrigin(0.5)
 
-        this.add.bitmapText(gameWidth / 2, 550, "Pixel", "press SPACEBAR to play", 25).setOrigin(0.5)
+        this.add.bitmapText(gameWidth / 2, 490, "Pixel", "press SPACEBAR to play", 25).setOrigin(0.5)
 
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)
