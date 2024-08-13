@@ -22,7 +22,12 @@ class Ball extends Phaser.Physics.Arcade.Sprite{
     }
 
     update(){
-        if(this.y <= this.height || this.y >= gameHeight - this.height){
+        if(this.y <= this.height){
+            this.y = this.height;
+            this.body.velocity.y *= -1
+        }
+        else if(this.y >= gameHeight - this.height){
+            this.y = gameHeight - this.height;
             this.body.velocity.y *= -1
         }
 

@@ -23,7 +23,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite{
         if(fast_ball){
             this.ballSpeed *= 1.5
         }
-        this.cooldown = 0; this.cooldownMax = 6
+        this.cooldown = 0; this.cooldownMax = 8
 
         this.shootSound = scene.sound.add("shoot")
     }
