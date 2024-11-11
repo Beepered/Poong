@@ -24,7 +24,7 @@ let upgrade1_1_cost = 1, upgrade2_1_cost = 1, upgrade3_1_cost = 1
 let upgrade1_2_cost = 1, upgrade2_2_cost = 1, upgrade3_2_cost = 1
 
 //game modifiers
-let countdown = 0; countdownMax = 20; winMax = 20;
+let countdown = 0; countdownMax = 20; winCondition = 20;
 let ball_reflection = false; fast_ball = false; increasing_speed = false; fast_paddles = false
 
 let playing = true

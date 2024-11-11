@@ -21,7 +21,7 @@ class Changes extends Phaser.Scene{
 
         this.add.sprite(gameWidth / 2 + 150, 150, "arrow").setScale(2).setTintFill(0x000000)
         this.add.sprite(gameWidth / 2 + 150, 250, "arrow").setScale(2).setTintFill(0x000000).angle = 180
-        this.win_text = this.add.bitmapText(gameWidth / 2 + 150, 200, "Pixel", "win limit: " + winMax, 20).setOrigin(0.5)
+        this.win_text = this.add.bitmapText(gameWidth / 2 + 150, 200, "Pixel", "win limit: " + winCondition, 20).setOrigin(0.5)
 
         this.ball_reflection_text = this.add.bitmapText(gameWidth / 2, 310, "Pixel", "balls reflect off balls: press W", 16).setTintFill(0xFF0000).setOrigin(0.5)
         this.fast_ball_text = this.add.bitmapText(gameWidth / 2, 340, "Pixel", "50% faster balls: press A", 16).setTintFill(0xFF0000).setOrigin(0.5)
@@ -57,9 +57,9 @@ class Changes extends Phaser.Scene{
                 countdownMax += 5
                 this.countdown_text.text = "time: " + countdownMax
             }
-            else if(this.cursor_location == 1 && winMax < 60){ //increase win max
-                winMax += 1
-                this.win_text.text = "win limit: " + winMax
+            else if(this.cursor_location == 1 && winCondition < 60){ //increase win max
+                winCondition += 1
+                this.win_text.text = "win limit: " + winCondition
             }
         }
         else if(Phaser.Input.Keyboard.JustDown(keyDOWN)){
@@ -67,9 +67,9 @@ class Changes extends Phaser.Scene{
                 countdownMax -= 5
                 this.countdown_text.text = "time: " + countdownMax
             }
-            else if(this.cursor_location == 1 && winMax > 3){
-                winMax -= 1
-                this.win_text.text = "win limit: " + winMax
+            else if(this.cursor_location == 1 && winCondition > 3){
+                winCondition -= 1
+                this.win_text.text = "win limit: " + winCondition
             }
         }
 

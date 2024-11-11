@@ -59,7 +59,7 @@ class Play extends Phaser.Scene{
             this.scene.launch("UpgradeScene")
         }
 
-        if(player1_points >= winMax || player2_points >= winMax){ //winner
+        if(player1_points >= winCondition || player2_points >= winCondition){ //winner
             playing = false
             Phaser.Actions.Call(this.BallGroup.getChildren(), function(ball) {
                 ball.body.setVelocity(0, 0)

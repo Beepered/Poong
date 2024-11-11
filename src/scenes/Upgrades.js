@@ -14,27 +14,27 @@ class Upgrades extends Phaser.Scene{
         playing = false
         this.player1_finished = false; this.player2_finished = false;
 
-        this.background1 = this.add.rectangle(170, gameHeight / 2, 300, 410, 0x0000FF).setOrigin(0.5)
-        this.upgrade1_1 = this.add.sprite(95, 140, "upgrade paddle");
-        this.upgrade1_1_text = this.add.bitmapText(150, 130, "Pixel", upgrade1_1_cost, 25)
-        this.upgrade2_1 = this.add.sprite(95, 240, "upgrade ball");
-        this.upgrade2_1_text = this.add.bitmapText(150, 230, "Pixel", upgrade2_1_cost, 25)
-        this.upgrade3_1 = this.add.sprite(95, 340, "upgrade cooldown");
-        this.upgrade3_1_text = this.add.bitmapText(150, 330, "Pixel", upgrade3_1_cost, 25)
-        this.finished_1 = this.add.sprite(135, 440, "finished")
+        this.background1 = this.add.rectangle(170, gameHeight / 2, 300, 380, 0x0000FF).setOrigin(0.5)
+        this.upgrade1_1 = this.add.sprite(130, 140, "upgrade paddle");
+        this.upgrade1_1_text = this.add.bitmapText(180, 130, "Pixel", upgrade1_1_cost, 25)
+        this.upgrade2_1 = this.add.sprite(130, 230, "upgrade ball");
+        this.upgrade2_1_text = this.add.bitmapText(180, 220, "Pixel", upgrade2_1_cost, 25)
+        this.upgrade3_1 = this.add.sprite(130, 320, "upgrade cooldown");
+        this.upgrade3_1_text = this.add.bitmapText(180, 310, "Pixel", upgrade3_1_cost, 25)
+        this.finished_1 = this.add.sprite(175, 410, "finished")
 
-        this.background2 = this.add.rectangle(gameWidth - 170, gameHeight / 2, 300, 410, 0x0000FF).setOrigin(0.5)
-        this.upgrade1_2 = this.add.sprite(gameWidth - 95, 140, "upgrade paddle");
-        this.upgrade1_2_text = this.add.bitmapText(gameWidth - 150, 130, "Pixel", upgrade1_2_cost, 25).setOrigin(1, 0.5)
-        this.upgrade2_2 = this.add.sprite(gameWidth - 95, 240, "upgrade ball");
-        this.upgrade2_2_text = this.add.bitmapText(gameWidth - 150, 230, "Pixel", upgrade2_2_cost, 25).setOrigin(1, 0.5)
-        this.upgrade3_2 = this.add.sprite(gameWidth - 95, 340, "upgrade cooldown");
-        this.upgrade3_2_text = this.add.bitmapText(gameWidth - 150, 330, "Pixel", upgrade3_2_cost, 25).setOrigin(1, 0.5)
-        this.finished_2 = this.add.sprite(gameWidth - 135, 440, "finished")
+        this.background2 = this.add.rectangle(gameWidth - 170, gameHeight / 2, 300, 380, 0x0000FF).setOrigin(0.5)
+        this.upgrade1_2 = this.add.sprite(gameWidth - 130, 140, "upgrade paddle");
+        this.upgrade1_2_text = this.add.bitmapText(gameWidth - 180, 130, "Pixel", upgrade1_2_cost, 25).setOrigin(1, 0.5)
+        this.upgrade2_2 = this.add.sprite(gameWidth - 130, 230, "upgrade ball");
+        this.upgrade2_2_text = this.add.bitmapText(gameWidth - 180, 220, "Pixel", upgrade2_2_cost, 25).setOrigin(1, 0.5)
+        this.upgrade3_2 = this.add.sprite(gameWidth - 130, 320, "upgrade cooldown");
+        this.upgrade3_2_text = this.add.bitmapText(gameWidth - 180, 310, "Pixel", upgrade3_2_cost, 25).setOrigin(1, 0.5)
+        this.finished_2 = this.add.sprite(gameWidth - 175, 410, "finished")
         
-        this.cursor1 = this.physics.add.sprite(40, 140, "ball").setScale(2) //left cursor
+        this.cursor1 = this.physics.add.sprite(60, 140, "ball").setScale(2) //left cursor
         this.cursor1_location = 0
-        this.cursor2 = this.physics.add.sprite(gameWidth - 40, 140, "ball").setScale(2) //right cursor
+        this.cursor2 = this.physics.add.sprite(gameWidth - 60, 140, "ball").setScale(2) //right cursor
         this.cursor2_location = 0
     }
 
@@ -50,13 +50,13 @@ class Upgrades extends Phaser.Scene{
                 if(Phaser.Input.Keyboard.JustDown(keyW)){ //move up
                     if(this.cursor1.y > 140){
                         this.cursor1_location--
-                        this.cursor1.y -= 100
+                        this.cursor1.y -= 90
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyS)){ //move down
-                    if(this.cursor1.y < 440){
+                    if(this.cursor1.y < 410){
                         this.cursor1_location++
-                        this.cursor1.y += 100
+                        this.cursor1.y += 90
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyD)){ //buy
@@ -90,13 +90,13 @@ class Upgrades extends Phaser.Scene{
                 if(Phaser.Input.Keyboard.JustDown(keyUP)){ //move up
                     if(this.cursor2.y > 140){
                         this.cursor2_location--
-                        this.cursor2.y -= 100
+                        this.cursor2.y -= 90
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyDOWN)){ //move down
-                    if(this.cursor2.y < 440){
+                    if(this.cursor2.y < 410){
                         this.cursor2_location++
-                        this.cursor2.y += 100
+                        this.cursor2.y += 90
                     }
                 }
                 else if(Phaser.Input.Keyboard.JustDown(keyLEFT)){ //buy
@@ -109,13 +109,13 @@ class Upgrades extends Phaser.Scene{
                     else if (this.cursor2_location == 1 && player2_points >= upgrade2_2_cost){ //faster ball
                         player2.ballSpeed = player2.ballSpeed * 1.15
                         player2_points -= upgrade2_2_cost
-                        upgrade2_2_costt++
+                        upgrade2_2_cost++
                         this.upgrade2_2_text.text = upgrade2_2_cost
                     }
                     else if (this.cursor2_location == 2 && player2_points >= upgrade3_2_cost){ //lower cooldown
                         player2.cooldownMax *= 0.85
                         player2_points -= upgrade3_2_cost
-                        upgrade3_2_costt++
+                        upgrade3_2_cost++
                         this.upgrade3_2_text.text = upgrade3_2_cost
                     }
                     else if (this.cursor2_location == 3){
