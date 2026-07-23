@@ -39,8 +39,8 @@ let upgrade1_2_cost = 1,
 
 //game modifiers
 let countdown = 0;
-countdownMax = 20;
-winCondition = 20;
+countdownMax = 25;
+winCondition = 10;
 let ball_reflection = false;
 fast_ball = false;
 increasing_speed = false;

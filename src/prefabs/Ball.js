@@ -22,8 +22,9 @@ class Ball extends Phaser.Physics.Arcade.Sprite {
     }
 
     if (random_balls) {
+      // random color and size
       this.tint = Phaser.Display.Color.RandomRGB().color;
-      this.setScale(Phaser.Math.FloatBetween(0.65, 3));
+      this.setScale(Phaser.Math.FloatBetween(0.6, 3));
     }
 
     this.reflectSound = scene.sound.add("reflect");
@@ -59,8 +60,8 @@ class Ball extends Phaser.Physics.Arcade.Sprite {
   }
 
   reflect(paddle) {
-    //reflect off paddle
-    if (this.canReflect) {
+    // reflect off paddle if not touching owner's paddle
+    if (this.canReflect && paddle.playerID != this.playerID) {
       this.reflectSound.play();
       this.body.velocity.x *= -1;
       if (increasing_speed) {
@@ -70,10 +71,10 @@ class Ball extends Phaser.Physics.Arcade.Sprite {
       this.playerID = paddle.playerID;
       if (this.y < paddle.y - 4) {
         //hit top of paddle
-        this.body.velocity.y = -50 * Phaser.Math.Between(1, 2.5);
+        this.body.velocity.y = -50 * Phaser.Math.Between(1, 2.25);
       } else if (this.y > paddle.y + 4) {
         //hit bottom of paddle
-        this.body.velocity.y = 50 * Phaser.Math.Between(1, 2.5);
+        this.body.velocity.y = 50 * Phaser.Math.Between(1, 2.25);
       }
       if (this.playerID == 1) {
         this.tint = 0xffffff;
@@ -94,21 +95,23 @@ class Ball extends Phaser.Physics.Arcade.Sprite {
       //increase speed on reflection
       this.body.velocity.x *= 1.1;
     }
+
+    // change y direction if going straight
     if (this.body.velocity.y == 0) {
       while (this.body.velocity.y == 0) {
         //make sure it does not stay at 0
-        this.body.velocity.y = 80 * Phaser.Math.Between(-2, 2);
+        this.body.velocity.y = 80 * Phaser.Math.Between(-1.5, 1.5);
       }
     } else {
-      this.body.velocity.y *= Phaser.Math.Between(2, 3);
+      this.body.velocity.y *= Phaser.Math.Between(1.5, 3);
     }
 
     if (this.playerID == 1) {
       //switch player id
-      this.playerID = 0;
+      this.playerID = 2;
       this.tint = 0x000000;
     } else {
-      this.playerID = 0;
+      this.playerID = 1;
       this.tint = 0xffffff;
     }
 

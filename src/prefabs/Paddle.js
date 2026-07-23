@@ -15,7 +15,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite {
         this.y,
         "Pixel",
         "100%",
-        8
+        8,
       );
     }
     scene.add.existing(this);
@@ -26,7 +26,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite {
     this.playerID = playerID;
     this.speed = 350;
     if (fast_paddles) {
-      this.speed *= 5;
+      this.speed *= 4.5;
     }
 
     this.ballSpeed = 550;
@@ -35,7 +35,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite {
     }
 
     this.cooldown = 0;
-    this.cooldownMax = 7;
+    this.cooldownMax = 6.5;
     if (fast_cooldown) {
       this.cooldownMax /= 10;
     }
@@ -46,7 +46,7 @@ class Paddle extends Phaser.Physics.Arcade.Sprite {
   update(time, delta) {
     this.cooldown_text.text =
       Math.floor(
-        ((this.cooldownMax - this.cooldown) / this.cooldownMax) * 100
+        ((this.cooldownMax - this.cooldown) / this.cooldownMax) * 100,
       ) + "%";
     this.cooldown_text.y = this.y;
     if (playing) {

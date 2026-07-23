@@ -7,7 +7,7 @@ class Changes extends Phaser.Scene {
     this.load.bitmapFont(
       "Pixel",
       "assets/pixel font.png",
-      "assets/pixel font.xml"
+      "assets/pixel font.xml",
     );
     this.load.image("ball", "assets/ball.png");
     this.load.image("arrow", "assets/arrow.png");
@@ -18,42 +18,42 @@ class Changes extends Phaser.Scene {
       .bitmapText(gameWidth / 2, 40, "Pixel", "GAME MODIFIERS", 22)
       .setOrigin(0.5);
 
-    this.cursor = this.add.sprite(gameWidth / 2 - 250, 200, "ball");
+    this.cursor = this.add.sprite(gameWidth / 2 - 250, 160, "ball");
     this.cursor_location = 0;
 
     this.add
-      .sprite(gameWidth / 2 - 150, 120, "arrow")
+      .sprite(gameWidth / 2 - 170, 110, "arrow")
       .setScale(2)
       .setTintFill(0x000000);
     this.add
-      .sprite(gameWidth / 2 - 150, 220, "arrow")
+      .sprite(gameWidth / 2 - 170, 210, "arrow")
       .setScale(2)
       .setTintFill(0x000000).angle = 180;
     this.countdown_text = this.add
       .bitmapText(
-        gameWidth / 2 - 120,
-        170,
+        gameWidth / 2 - 140,
+        160,
         "Pixel",
         "time: " + countdownMax,
-        20
+        20,
       )
       .setOrigin(0.5);
 
     this.add
-      .sprite(gameWidth / 2 + 150, 120, "arrow")
+      .sprite(gameWidth / 2 + 150, 110, "arrow")
       .setScale(2)
       .setTintFill(0x000000);
     this.add
-      .sprite(gameWidth / 2 + 150, 220, "arrow")
+      .sprite(gameWidth / 2 + 150, 210, "arrow")
       .setScale(2)
       .setTintFill(0x000000).angle = 180;
     this.win_text = this.add
       .bitmapText(
         gameWidth / 2 + 150,
-        170,
+        160,
         "Pixel",
         "win limit: " + winCondition,
-        20
+        20,
       )
       .setOrigin(0.5);
 
@@ -63,7 +63,7 @@ class Changes extends Phaser.Scene {
         280,
         "Pixel",
         "balls reflect off balls: press W",
-        16
+        16,
       )
       .setTintFill(0xff0000)
       .setOrigin(0.5);
@@ -77,7 +77,7 @@ class Changes extends Phaser.Scene {
         340,
         "Pixel",
         "balls speed up on reflect: press S",
-        16
+        16,
       )
       .setTintFill(0xff0000)
       .setOrigin(0.5);
@@ -87,7 +87,7 @@ class Changes extends Phaser.Scene {
         370,
         "Pixel",
         "paddles are too fast: press D",
-        16
+        16,
       )
       .setTintFill(0xff0000)
       .setOrigin(0.5);
@@ -101,7 +101,7 @@ class Changes extends Phaser.Scene {
         430,
         "Pixel",
         "quicker ball cooldown: press E",
-        16
+        16,
       )
       .setTintFill(0xff0000)
       .setOrigin(0.5);
@@ -136,17 +136,18 @@ class Changes extends Phaser.Scene {
       this.cursor_location++;
     }
 
+    // move cursor from time - win condition
     if (Phaser.Input.Keyboard.JustDown(keyUP)) {
+      //increasing
       if (this.cursor_location == 0 && countdownMax < 60) {
-        //increase time
         countdownMax += 5;
         this.countdown_text.text = "time: " + countdownMax;
       } else if (this.cursor_location == 1 && winCondition < 60) {
-        //increase win max
         winCondition += 1;
         this.win_text.text = "win limit: " + winCondition;
       }
     } else if (Phaser.Input.Keyboard.JustDown(keyDOWN)) {
+      // decreasing
       if (this.cursor_location == 0 && countdownMax > 10) {
         countdownMax -= 5;
         this.countdown_text.text = "time: " + countdownMax;
