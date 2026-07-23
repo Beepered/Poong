@@ -24,11 +24,11 @@ class Credits extends Phaser.Scene {
         gameWidth / 2,
         gameHeight / 2,
         "Pixel",
-        "Programming/Art/Game Design by Luminice Star\n\n" +
+        "Programming/Art/Game Design\nby Luminice Star\n\n" +
           "Programming in Phaser/JS\n\n" +
           "Sound effects made in sfxr.me\n\n" +
           "Public Pixel font by GGBotNet",
-        15,
+        20,
       )
       .setOrigin(0.5);
     SPACEBAR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

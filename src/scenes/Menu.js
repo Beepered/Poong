@@ -29,14 +29,14 @@ class Menu extends Phaser.Scene {
       .setOrigin(0.5);
 
     //option select
-    this.cursor = this.add.sprite(240, gameHeight / 2, "ball");
+    this.cursor = this.add.sprite(230, gameHeight / 2, "ball");
     this.cursor_location = 0;
     this.add
-      .bitmapText(gameWidth / 2 - 80, gameHeight / 2, "Pixel", "PLAY", 25)
+      .bitmapText(gameWidth / 2 - 100, gameHeight / 2, "Pixel", "PLAY", 25)
       .setOrigin(0, 0.5);
     this.add
       .bitmapText(
-        gameWidth / 2 - 80,
+        gameWidth / 2 - 100,
         gameHeight / 1.7,
         "Pixel",
         "INSTRUCTIONS",
@@ -44,7 +44,13 @@ class Menu extends Phaser.Scene {
       )
       .setOrigin(0, 0.5);
     this.add
-      .bitmapText(gameWidth / 2 - 80, gameHeight / 1.45, "Pixel", "CREDITS", 25)
+      .bitmapText(
+        gameWidth / 2 - 100,
+        gameHeight / 1.45,
+        "Pixel",
+        "CREDITS",
+        25,
+      )
       .setOrigin(0, 0.5);
 
     //instruction

@@ -41,7 +41,7 @@ class Instruction extends Phaser.Scene {
         gameWidth / 2,
         gameHeight / 1.4,
         "Pixel",
-        "Upgrade at end of 20 seconds",
+        "Upgrade at end of 25 seconds",
         16,
       )
       .setOrigin(0.5);
@@ -52,7 +52,7 @@ class Instruction extends Phaser.Scene {
         gameWidth / 2 - 200,
         gameHeight / 1.07,
         "Pixel",
-        "paddle size\n+10%",
+        "paddle size\n+20%",
         13,
       )
       .setOrigin(0.5);
@@ -62,7 +62,7 @@ class Instruction extends Phaser.Scene {
         gameWidth / 2,
         gameHeight / 1.07,
         "Pixel",
-        "ball speed\n+15%",
+        "ball speed\n+20%",
         13,
       )
       .setOrigin(0.5);
@@ -72,7 +72,7 @@ class Instruction extends Phaser.Scene {
         gameWidth / 2 + 200,
         gameHeight / 1.07,
         "Pixel",
-        "cooldown\n-15%",
+        "cooldown\n-20%",
         13,
       )
       .setOrigin(0.5);
